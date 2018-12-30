@@ -1,0 +1,14 @@
+clf;
+fplot(@(x)-sqrt(2*x),[0 2],'b');
+hold on;
+fplot(@(x)sqrt(-2*x),[-2 0],'r');
+fplot(@(x)2,[-6,8],'g');
+fplot(@(x)-2,[-6,8],'g');
+fplot(@(x)sqrt(-2*(x-4)),[2,4],'--k');
+fplot(@(x)-sqrt(-2*(x-4)),[2,4],'--k');
+fplot(@(x)sqrt(2*(x+4)),[-4,-2],'--k');
+fplot(@(x)-sqrt(2*(x+4)),[-4,-2],'--k');
+%fplot(@(x)0,[-6,6],'--k');
+fplot(@(x)sqrt(-2*(x-8)),[6,8],'m');
+fplot(@(x)-sqrt(-2*(x-8)),[6,8],'m');
+fplot(@(x)-sqrt(2*(x-4)),[4,6],'m');

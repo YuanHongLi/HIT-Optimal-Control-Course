@@ -1,0 +1,43 @@
+%%% specify the boundary points
+t=linspace(0,1,100);
+solinit = bvpinit(t,[0 0 0 0],[100;-1;0.5]);
+%%% bvp4c
+res=bvp4c(@opt_odefunction,@opt_boundary,solinit);
+% get tf
+tf=res.parameters(1);
+R=deval(res,t);
+time=t*tf;
+x=R(1,:);
+y=R(2,:);
+vx=R(3,:);
+vy=R(4,:);
+figure(1);
+plot(time,x);
+title('状态x随时间变化曲线');
+xlabel('t/s');
+ylabel('x/m');
+grid on;
+figure(2);
+plot(time,y);
+title('状态y随时间变化曲线');
+xlabel('t/s');
+ylabel('y/m');
+grid on;
+figure(3);
+plot(time,vx);
+title('状态v_x随时间变化曲线');
+xlabel('t/s');
+ylabel('v_x/(m/s)');
+grid on;
+figure(4);
+plot(time,vy);
+title('状态v_y随时间变化曲线');
+xlabel('t/s');
+ylabel('v_y/(m/s)');
+grid on;
+figure(5);
+plot(time,180/pi*atan(res.parameters(2)*(t-res.parameters(3))));
+title('\alpha 随时间变化曲线');
+xlabel('t/s');
+ylabel('\alpha /(Degree)');
+grid on;
